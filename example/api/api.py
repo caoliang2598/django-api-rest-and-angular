@@ -4,11 +4,44 @@ from rest_framework import generics, permissions, mixins, request
 from .serializers import UserSerializer, PostSerializer, PhotoSerializer, PlanSerializer, ActivitySerializer
 from .models import User, Post, Photo, Plan, Activity
 from .permissions import IsOwnerOrReadOnly,PostAuthorCanEditPermission, IsUerOrReadOnly
-from django.contrib.auth import authenticate, login
+from .form import LoginForm
+from django.views.generic.edit import FormView
+from django.core.urlresolvers import reverse
+from django.http import HttpResponseRedirect
+from django.contrib.auth import (
+    REDIRECT_FIELD_NAME, login, logout, authenticate
+)
 
+class LoginView(FormView):
+    form_class = LoginForm
+    template_name = 'login.html'
+    success_url = '#/buddies'
+    def form_valid(self, form):
+        username = form.cleaned_data['username']
+        password = form.cleaned_data['password']
 
+        user = authenticate(username=username,
+                            password=password)
+        if user is not None:
+            if user.is_active:
+                login(self.request, user)
+                return HttpResponseRedirect(self.get_success_url())
+        else:
+            return self.form_invalid(form)
 
+    def form_invalid(self):
+        return HttpResponseRedirect(reverse('/'))
 
+    def get_success_url(self):
+        return self.success_url
+
+    def post(self, request, *args, **kwargs):
+        form_class = self.get_form_class()
+        form = self.get_form(form_class)
+        if form.is_valid():
+            return self.form_valid(form)
+        else:
+            return self.form_invalid()
 
 
 class UserList(generics.ListAPIView):
