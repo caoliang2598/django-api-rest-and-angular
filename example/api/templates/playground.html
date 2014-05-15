@@ -5,9 +5,12 @@
 {% verbatim %}
 <div class="content" ng-controller="AppController">
     <ol>
-        <li ng-repeat="user in users">{{ user.username }} <button ng-click="deleteUser(user)">delete</button></li>
+        <li ng-repeat="user in users">{{ user.username }}
+            <button ng-click="deleteUser(user)">delete</button>
+        </li>
     </ol>
-New User <input type="text" ng-model="newUsername"> <button ng-click="addUser()">Add</button>
+    New User <input type="text" ng-model="newUsername">
+    <button ng-click="addUser()">Add</button>
 </div>
 {% endverbatim %}
 <script src="{% static "underscore/underscore.js" %}"></script>

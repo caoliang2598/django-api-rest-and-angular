@@ -6,19 +6,24 @@ from django.contrib.auth.models import AbstractUser
 class User(AbstractUser):
     age = models.PositiveIntegerField(default=0)
     sex = models.CharField(max_length=20, default="")
-    desc = models.CharField(max_length=100,default="")
+    desc = models.TextField(blank=True, null=True, default='')
     followers = models.ManyToManyField('self', related_name='followees', symmetrical=False)
     proPic = models.ImageField(upload_to="%Y/%m/%d", default="")
 
 
 class Plan(models.Model):
-    time = models.DateTimeField()
+    arrTime = models.DateTimeField()
+    title = models.CharField(max_length=60, default="")
     usr = models.ForeignKey(User,related_name='plan')
-    des = models.CharField(max_length=50)
-    dur = models.PositiveIntegerField(default=0)
+    des = models.CharField(max_length=30, default="")
     flightNr = models.CharField(max_length=20)
+    desc = models.TextField(blank=True, null=True, default='')
 
-
+class Activity(models.Model):
+    plan = models.ForeignKey(Plan, related_name='activity')
+    actTime = models.DateTimeField()
+    actTitle = models.CharField(max_length=50)
+    desc = models.TextField(blank=True, null=True,default='')
 
 class Post(models.Model):
     author = models.ForeignKey(User, related_name='posts')

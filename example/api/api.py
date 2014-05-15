@@ -1,23 +1,130 @@
-from rest_framework import generics, permissions
+from rest_framework import generics, permissions, mixins, request
 
 
-from .serializers import UserSerializer, PostSerializer, PhotoSerializer
-from .models import User, Post, Photo
-from .permissions import PostAuthorCanEditPermission
+from .serializers import UserSerializer, PostSerializer, PhotoSerializer, PlanSerializer, ActivitySerializer
+from .models import User, Post, Photo, Plan, Activity
+from .permissions import IsOwnerOrReadOnly,PostAuthorCanEditPermission, IsUerOrReadOnly
+from django.contrib.auth import authenticate, login
+
+
+
+
 
 
 class UserList(generics.ListAPIView):
     model = User
     serializer_class = UserSerializer
     permission_classes = [
-        permissions.AllowAny
+        permissions.IsAuthenticatedOrReadOnly
     ]
 
 
-class UserDetail(generics.RetrieveAPIView):
+class UserDetail(generics.RetrieveUpdateAPIView):
     model = User
     serializer_class = UserSerializer
     lookup_field = 'username'
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly,
+        IsUerOrReadOnly
+    ]
+
+
+
+
+class PlanList(mixins.ListModelMixin,
+                  mixins.CreateModelMixin,
+                  generics.GenericAPIView):
+    model = Plan
+    serializer_class = PlanSerializer
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly
+    ]
+
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+
+    def pre_save(self,obj):
+        obj.author=self.request.user
+        return super(PlanList, self).pre_save(obj)
+
+
+class UserPlanList(PlanList):
+
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly,
+        IsOwnerOrReadOnly
+    ]
+
+    def get_queryset(self):
+        queryset = super(UserPlanList, self).get_queryset()
+        return queryset.filter(usr__username=self.kwargs.get('username'))
+
+class PlanDetail(mixins.RetrieveModelMixin,
+                    mixins.UpdateModelMixin,
+                    mixins.DestroyModelMixin,
+                    generics.GenericAPIView):
+    model = Plan
+    serializer_class = PlanSerializer
+    permission_classes = [
+        permissions.IsAuthenticatedOrReadOnly,
+        IsOwnerOrReadOnly
+    ]
+
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
+
+
+class PlanActivityList(mixins.ListModelMixin,
+                  mixins.CreateModelMixin,
+                  generics.GenericAPIView):
+    model = Activity
+    serializer_class = ActivitySerializer
+    permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
+
+
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+
+    def post(self, request, *args, **kwargs):
+        return self.create(request, *args, **kwargs)
+
+    def pre_save(self,obj):
+        obj.plan=self.request.plan
+        return super(PlanActivityList, self).pre_save(obj)
+
+    def get_queryset(self):
+        queryset = super(PlanActivityList, self).get_queryset()
+        return queryset.filter(plan__pk=self.kwargs.get('pk'))
+
+
+class PlanActivityDetail(mixins.RetrieveModelMixin,
+                    mixins.UpdateModelMixin,
+                    mixins.DestroyModelMixin,
+                    generics.GenericAPIView):
+    model = Activity
+    serializer_class = ActivitySerializer
+    permission_class = (permissions.IsAuthenticatedOrReadOnly,)
+
+    def get(self, request, *args, **kwargs):
+        return self.retrieve(request, *args, **kwargs)
+
+    def put(self, request, *args, **kwargs):
+        return self.update(request, *args, **kwargs)
+
+    def delete(self, request, *args, **kwargs):
+        return self.destroy(request, *args, **kwargs)
 
 
 class PostMixin(object):
@@ -54,7 +161,7 @@ class PhotoList(generics.ListCreateAPIView):
     model = Photo
     serializer_class = PhotoSerializer
     permission_classes = [
-        permissions.AllowAny
+        permissions.IsAuthenticated
     ]
 
 
@@ -62,7 +169,7 @@ class PhotoDetail(generics.RetrieveUpdateDestroyAPIView):
     model = Photo
     serializer_class = PhotoSerializer
     permission_classes = [
-        permissions.AllowAny
+        permissions.IsAuthenticated
     ]
 
 

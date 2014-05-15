@@ -1,0 +1,73 @@
+<div class="container" ng-controller="postListController">
+    <div class="row">
+        <div class="col-md-2">
+            <!--Sidebar content-->
+
+            Search: <input ng-model="query">
+            Sort by:
+            <select ng-model="orderProp">
+                <option value="name">Title</option>
+                <option value="ArrivalTime">Arrival Time</option>
+            </select>
+
+        </div>
+        <div class="col-md-10">
+            <!--Body content-->
+            {% verbatim %}
+            <div ng-repeat="plan in plans" class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-target="#{{ plan.id }}" href="">
+                                <div class="row">
+                                    <div class="col-md-6">{{ plan.title }}</div>
+                                    <div class="col-md-2">{{ plan.des }}</div>
+                                    <div class="col-md-4">{{ plan.arrTime|date:'yyyy-MM-dd' }}</div>
+                                </div>
+                            </a>
+
+                        </h4>
+                    </div>
+                    <div id="{{ plan.id }}" class="panel-collapse collapse ">
+                        <div class="panel-body">
+                            <div class="media">
+                                <a class="pull-left" href="{{ plan.usr }}">
+                                    <img class="media-object" src="..." alt="...">
+                                </a>
+
+                                <div class="media-body">
+                                    <a href="#/users/{{ plan.authorName }}">
+                                        <h4 class="media-heading">{{ plan.authorName }}</h4>
+                                    </a>
+
+                                    <div>{{ plan.desc }}</div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <a class="pull-left" href="{{ plan.usr }}">
+                                    <img class="media-object" src="..." alt="...">
+                                </a>
+
+                                <div class="media-body">
+                                    <a href="#/plans/{{ plan.id }}">
+                                        <h4 class="media-heading">Activities</h4>
+                                    </a>
+
+                                    <div class="list-group " ng-repeat="act in plan.activities">
+                                        <a href="#/plans/{{ plan.id }}"
+                                           class="list-group-item">
+                                            {{ act.actTitle }}
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endverbatim %}
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,139 @@
+<div class="container" ng-controller="planDetailController">
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xs-12">
+            <div class="list-group">
+                {% verbatim %}
+                <a class="list-group-item active"> PLAN INFORMATION</a>
+                <a class="list-group-item"> Destination: {{ plan.des }}</a>
+                <a class="list-group-item">Arrival Time: {{ plan.arrTime| date:'yyyy-MM-dd' }}</a>
+
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    USER INFORMATION
+                </div>
+                <div class="panel-body">
+                    Panel content goes here. Lorem ipsum dolor set amet. Panel content goes here. Lorem ipsum dolor set
+                    amet.
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8 col-md-8 col-lg-8 col-xs-12">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="#">Home</a>
+                </li>
+                <li>
+                    <a href="#">Library</a>
+                </li>
+                <li class="active">
+                    Data
+                </li>
+            </ol>
+
+            <h2 class="page-header">
+                {{ plan.title }}
+            </h2>
+
+            <div id="tabs-575670" class="tabs-custom">
+                {{ plan.desc }}
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="#panel-605434" data-toggle="tab">Calendar</a>
+                    </li>
+                    <li>
+                        <a href="#panel-415122" data-toggle="tab">Map</a>
+                    </li>
+                </ul>
+                <div ng-repeat="act in plan.activities" class="tab-content">
+                    <div class="tab-pane active" id="act.id">
+                        <h3>
+
+                            {{ act.actTitle }}
+
+                        </h3>
+
+                        <div class="well well-sm">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <p>
+                                        Date:
+                                        <small>{{ act.actTime|date:'yyyy-MM-dd' }}</small>
+                                        | Time:
+                                        <small>{{ act.actTime|date:'HH:mm' }}</small>
+                                    </p>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <p class="text-right">
+                                        Share: <a href="#"><i class="icon-twitter  custom-icon"></i></a> <a href="#"><i
+                                            class="icon-facebook  custom-icon"></i></a> <a href="#"><i
+                                            class="icon-google-plus  custom-icon"></i></a> <a href="#"><i
+                                            class="icon-linkedin  custom-icon"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            {{ act.desc }}
+                        </p>
+
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <p>
+                                    Date:
+                                    <small>{{ act.actTime|date:'yyyy-MM-dd' }}</small>
+                                </p>
+                                <p>
+                                    Time:
+                                    <small>{{ act.actTime|date:'HH:mm' }}</small>
+                                </p>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                                <a class="btn btn-default btn-sm" href="#">Join!</a>
+                            </div>
+                        </div>
+                        <hr>
+                        {% endverbatim %}
+                    </div>
+                    <div class="tab-pane" id="panel-415122">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <form action="#" method="post" class="form" role="form">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12">
+                                            <label>Search by name</label>
+                                            <input class="form-control" name="searchname" type="text"
+                                                   placeholder="search">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <label>Search by Date</label>
+
+                                    <div class="row">
+                                        <div class="col-xs-4 col-md-4">
+                                            <select class="form-control">
+                                                <option value="Month">Month</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-4 col-md-4">
+                                            <select class="form-control">
+                                                <option value="Day">Day</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-4 col-md-4">
+                                            <select class="form-control">
+                                                <option value="Year">Year</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <button class="btn btn-lg btn-primary" type="submit">SEARCH</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+<div class="container" ng-controller="userDetailController">
+
+    {% verbatim %}
+    <h1 class="letterpress">User Detail</h1>
+    <hr>
+
+    <div class="row-fluid">
+        <div class="col-md-10">
+            <div class="page-header">
+
+                <h3>{{ user.username }}</h3>
+            </div>
+            <div class="row-fluid">
+                <div class="col-md-3">
+                    <strong>Info</strong>
+                    <hr>
+                    <small>Joined: Thursday, May 09, 2013</small><br>
+                    <small>First Name: {{ user.firstname }}</small><br>
+                    <small>Second Name: {{ user.secondname }}</small><br>
+                    <small>Gender: {{ user.sex }}</small>
+
+                    <br><br><br><br>
+                    <strong>status</strong>
+                    <hr>
+                    <table>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <small>Plys</small>
+                            </td>
+                            <td><span class="badge">34</span></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <small>Votes</small>
+                            </td>
+                            <td><span class="badge badge-success">334</span></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <small>Forks</small>
+                            </td>
+                            <td><span class="badge">4</span></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <small>Views</small>
+                            </td>
+                            <td><span class="badge badge-info">5234</span></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-9">
+                    <ul ng-repeat="plan in user.userDetailplans" id="listStuff" class="nav nav-tabs nav-stacked">
+
+                        <li class="list-child"><a href="#/plans/{{ plan.id }}">{{ plan.title }}</a></li>
+                    </ul>
+                    <ul class="pagination pagination-mini pager list-pager"></ul>
+                </div>
+            </div>
+        </div>
+{% endverbatim %}
+
+        <div class="span2">
+            <div id="carbonads-container">
+                <div class="carbonad"><img src="//placehold.it/150x200"></div>
+            </div>
+            <hr>
+
+        </div>
+    </div>
+</div>

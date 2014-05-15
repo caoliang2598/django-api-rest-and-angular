@@ -1,13 +1,128 @@
 {% load staticfiles %}
 
-<html>
-<body ng-app="example.app.resource">
-<ol>
-    <li><a href="{% url "example" template_name='static' %}">Hard Coded Example</li>
-    <li><a href="{% url "example" template_name='basic' %}">Basic Ajax Example</li>
-    <li><a href="{% url "example" template_name='resource' %}">Angular Resource Example</li>
-    <li><a href="{% url "example" template_name='photos' %}">Photos Example</li>
-    <li><a href="{% url "example" template_name='editor' %}">Editor Example</li>
-</ol>
+<!doctype html>
+<html lang="en" ng-app="example.app.static">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="This is a proect for TDDD27">
+    <meta name="author" content="Liang Cao">
+    <title>The TDDD27 project for travel buddies</title>
+    <link rel="stylesheet" href="{% static "bootstrap/dist/css/bootstrap.css" %}">
+    <link rel="stylesheet" href="{% static "css/app.css" %}">
+    <link rel="stylesheet" href="{% static "datepicker/css/datepicker.css" %}">
+    <script src="{% static "angular/angular.js" %}"></script>
+    <script src="{% static "angular-route/angular-route.js" %}"></script>
+    <script src="{% static "js/script.js" %}"></script>
+    <!--<script src="{% static "js/controllers.js" %}"></script>-->
+    <!--<script src="js/filters.js"></script>-->
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">TDDD27</a>
+        </div>
+
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#buddies">Find a travel buddy</a></li>
+                <li class="dropdown">
+                    <a href="/browse" class="dropdown-toggle" data-toggle="dropdown">Destinations <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#/browse">Europe</a></li>
+                        <li><a href="#">Asia</a></li>
+                        <li><a href="#">America</a></li>
+                        <li><a href="#">Australia</a></li>
+                        <li><a href="#">Africa</a></li>
+                        <li><a href="#">Middle east</a></li>
+                        <li class="divider"></li>
+                        <li><a href="#">More destinations</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">About</a></li>
+
+            </ul>
+            <form class="navbar-form navbar-right" role="form">
+               <!-- <div class="form-group">
+                    <input type="text" placeholder="Email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" class="form-control">
+                </div>-->
+                <button type="submit" class="btn btn-danger">Sign up</button>
+                <button type="submit" class="btn btn-success">Sign in</button>
+            </form>
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
+</div>
+
+
+<div ng-view></div>
+
+
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Heading</h2>
+
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+                euismod. Donec sed odio dui. </p>
+
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Heading</h2>
+
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+                euismod. Donec sed odio dui. </p>
+
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Heading</h2>
+
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
+                porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+                fermentum massa justo sit amet risus.</p>
+
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>&copy; Company 2014</p>
+    </footer>
+</div>
+<!-- /container -->
+
+
+<script src="{% static "jquery/dist/jquery.min.js" %}"></script>
+<script src="{% static "bootstrap/dist/js/bootstrap.js" %}"></script>
+<script language="javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.22/jquery-ui.min.js"></script>
+<script src="{% static "datepicker/js/bootstrap-datepicker.js" %}"></script>
+
 </body>
 </html>
+
+
+
+
+

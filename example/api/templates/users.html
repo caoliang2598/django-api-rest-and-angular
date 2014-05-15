@@ -1,0 +1,68 @@
+<div class="container" ng-controller="userListController">
+    <div class="row">
+        <div class="col-md-2">
+            <!--Sidebar content-->
+
+            Search: <input ng-model="query">
+            Sort by:
+            <select ng-model="orderProp">
+                <option value="name">Title</option>
+                <option value="ArrivalTime">Arrival Time</option>
+            </select>
+
+        </div>
+        <div class="col-md-10">
+            <!--Body content-->
+            {% verbatim %}
+            <div ng-repeat="user in users" class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-target="#{{ user.id }}" href="">
+                                <div class="row">
+                                    <div class="col-md-6">{{ user.username }}</div>
+                                    <div class="col-md-2">{{ user.sex }}</div>
+                                </div>
+                            </a>
+
+                        </h4>
+                    </div>
+                    <div id="{{ user.id }}" class="panel-collapse collapse ">
+                        <div class="panel-body">
+                            <div class="media">
+                                <a class="pull-left" href="{{ plan.usr }}">
+                                    <img class="media-object" src="..." alt="...">
+                                </a>
+
+                                <div class="media-body">
+
+                                    <div>{{ user.desc }}</div>
+                                </div>
+                            </div>
+                            <div class="media">
+                                <a class="pull-left" href="{{ plan.usr }}">
+                                    <img class="media-object" src="..." alt="...">
+                                </a>
+
+                                <div class="media-body">
+                                    <a href="#/users/{{ user.username }}">
+                                        <h4 class="media-heading">Plans</h4>
+                                    </a>
+
+                                    <div class="list-group " ng-repeat="usr_plan in user.u_plans">
+                                        <a href="#/plans/{{ usr_plan.id }}" class="list-group-item">
+                                            {{ usr_plan.title }}
+                                        </a>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endverbatim %}
+            </div>
+        </div>
+    </div>
+</div>

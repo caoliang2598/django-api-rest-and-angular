@@ -165,4 +165,4 @@ LOGGING = {
 AUTH_USER_MODEL = 'api.User'
 
 #### !!This is for demonstration only!! ####
-AUTHENTICATION_BACKENDS = ['example.api.auth.AlwaysRootBackend']
+'''AUTHENTICATION_BACKENDS = ['example.api.auth.AlwaysRootBackend']'''

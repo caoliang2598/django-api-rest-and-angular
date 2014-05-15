@@ -8,6 +8,9 @@ from django.contrib import admin
 admin.autodiscover()
 
 
+
+
+
 class SimpleStaticView(TemplateView):
     def get_template_names(self):
         return [self.kwargs.get('template_name') + ".html"]
@@ -17,7 +20,7 @@ class SimpleStaticView(TemplateView):
         if request.user.is_anonymous():
             # Auto-login the User for Demonstration Purposes
             user = authenticate()
-            login(request, user)
+            '''login(request, user)'''
         return super(SimpleStaticView, self).get(request, *args, **kwargs)
 
 
