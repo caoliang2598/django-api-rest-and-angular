@@ -1,5 +1,6 @@
 {% load staticfiles %}
 
+
 <!doctype html>
 <html lang="en" ng-app="example.app.static">
 <head>
@@ -13,6 +14,8 @@
     <link rel="stylesheet" href="{% static "css/app.css" %}">
     <link rel="stylesheet" href="{% static "datepicker/css/datepicker.css" %}">
     <script src="{% static "angular/angular.js" %}"></script>
+    <script src="{% static "angular-resource/angular-resource.js" %}"></script>
+
     <script src="{% static "angular-route/angular-route.js" %}"></script>
     <script src="{% static "js/script.js" %}"></script>
     <!--<script src="{% static "js/controllers.js" %}"></script>-->
@@ -21,6 +24,14 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 </head>
 <body>
+
+
+{% if user.is_authenticated %}
+
+
+{% else %}
+
+{% endif %}
 
 <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
@@ -54,16 +65,26 @@
                 <li><a href="#">About</a></li>
 
             </ul>
-            <form class="navbar-form navbar-right" role="form">
-               <!-- <div class="form-group">
-                    <input type="text" placeholder="Email" class="form-control">
-                </div>
-                <div class="form-group">
-                    <input type="password" placeholder="Password" class="form-control">
-                </div>-->
-                <button type="submit" class="btn btn-danger">Sign up</button>
-                <button type="submit" class="btn btn-success">Sign in</button>
-            </form>
+            {% if user.is_authenticated %}
+                <form class="navbar-form navbar-right" role="form" action="#/logout">
+
+                    <button type="submit" class="btn btn-success">Sign out</button>
+                </form>
+
+            {% else %}
+
+                <form class="navbar-form navbar-right" role="form" action="#/login">
+                    <!-- <div class="form-group">
+                         <input type="text" placeholder="Email" class="form-control">
+                     </div>
+                     <div class="form-group">
+                         <input type="password" placeholder="Password" class="form-control">
+                     </div>-->
+                    <button type="submit" class="btn btn-danger">Sign up</button>
+                    <button type="submit" class="btn btn-success">Sign in</button>
+                </form>
+
+            {% endif %}
         </div>
         <!--/.navbar-collapse -->
     </div>

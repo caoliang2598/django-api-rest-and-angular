@@ -1,11 +1,11 @@
 from django.conf.urls import patterns, url, include
-
+from django.http import HttpRequest
 from .api import UserList, UserDetail
 from .api import PostList, PostDetail, UserPostList, UserPlanList
 from .api import PhotoList, PhotoDetail, PostPhotoList, PlanDetail
 from .api import PlanList, PlanDetail
 from .api import PlanActivityList, PlanActivityDetail
-
+from .api import LoginView, logout_view
 
 user_urls = patterns('',
                      url(r'^/(?P<username>[0-9a-zA-Z_-]+)/plans$', UserPlanList.as_view(), name='userplan-list'),
@@ -40,10 +40,16 @@ urlpatterns = patterns('',
                        url(r'^users', include(user_urls)),
                        url(r'^posts', include(post_urls)),
                        url(r'^photos', include(photo_urls)),
-                       url(r'^plans', include(plan_urls))
+                       url(r'^plans', include(plan_urls)),
+                       url(r'^login/', LoginView.as_view(),name='login'),
+                       url(r'^logout/', 'example.api.api.logout_view')
 )
 
 urlpatterns += patterns('',
                         url(r'^api-auth/', include('rest_framework.urls',
                                                    namespace='rest_framework')),
+)
+
+urlpatterns += patterns('',
+
 )

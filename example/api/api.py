@@ -1,4 +1,4 @@
-from rest_framework import generics, permissions, mixins, request
+from rest_framework import generics, permissions, mixins, status
 
 
 from .serializers import UserSerializer, PostSerializer, PhotoSerializer, PlanSerializer, ActivitySerializer
@@ -11,11 +11,22 @@ from django.http import HttpResponseRedirect
 from django.contrib.auth import (
     REDIRECT_FIELD_NAME, login, logout, authenticate
 )
+import json
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponseBadRequest
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from django.http import HttpResponse
+
+def logout_view(request):
+    logout(request)
+    return HttpResponse('fsdfsafafsaf')
 
 class LoginView(FormView):
     form_class = LoginForm
     template_name = 'login.html'
     success_url = '#/buddies'
+
     def form_valid(self, form):
         username = form.cleaned_data['username']
         password = form.cleaned_data['password']
@@ -25,23 +36,40 @@ class LoginView(FormView):
         if user is not None:
             if user.is_active:
                 login(self.request, user)
-                return HttpResponseRedirect(self.get_success_url())
+
+                return HttpResponse('fsdfsafafsaf')
+
         else:
-            return self.form_invalid(form)
+            return HttpResponse('fsdfsafafsaf')
+
 
     def form_invalid(self):
-        return HttpResponseRedirect(reverse('/'))
+        return HttpResponseRedirect('/')
+
 
     def get_success_url(self):
         return self.success_url
 
     def post(self, request, *args, **kwargs):
-        form_class = self.get_form_class()
-        form = self.get_form(form_class)
-        if form.is_valid():
-            return self.form_valid(form)
+
+        in_data = json.loads(request.body)
+        bound_login_form = LoginForm(data={'username': in_data.get('username'), 'password':in_data.get('password')})
+        '''form_class = self.get_form_class()
+        form = self.get_form(form_class)'''
+        if bound_login_form.is_valid():
+            return self.form_valid(bound_login_form)
         else:
             return self.form_invalid()
+
+    def get_context_data(self, **kwargs):
+        context = super(LoginView, self).get_context_data(**kwargs)
+        context.update(login_form=LoginForm())
+        return context
+    @csrf_exempt
+    def dispatch(self, *args, **kwargs):
+        return super(LoginView, self).dispatch(*args, **kwargs)
+
+
 
 
 class UserList(generics.ListAPIView):
