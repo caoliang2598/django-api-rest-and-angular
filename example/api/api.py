@@ -12,20 +12,51 @@ from django.contrib.auth import (
     REDIRECT_FIELD_NAME, login, logout, authenticate
 )
 import json
+from rest_framework.permissions import AllowAny
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseBadRequest
 from rest_framework.response import Response
 from rest_framework.views import APIView
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from django.http import HttpResponse
 
 def logout_view(request):
     logout(request)
     return HttpResponse('fsdfsafafsaf')
 
+from rest_framework.authentication import BasicAuthentication
+
+class QuietBasicAuthentication(BasicAuthentication):
+
+    def authenticate_header(self, request):
+        return 'xBasic realm="%s"' % self.www_authenticate_realm
+
+class AuthView(APIView):
+    authentication_classes = (SessionAuthentication, QuietBasicAuthentication)
+
+    def get(self, request, format=None):
+        content = {
+            'user': unicode(request.user),  # `django.contrib.auth.User` instance.
+            'auth': unicode(request.auth),  # None
+        }
+        return Response(content)
+
+    def post(self, request, *args, **kwargs):
+        login(request, request.user)
+        return Response(UserSerializer(request.user).data)
+
+    def delete(self, request, *args, **kwargs):
+        logout(request)
+        return Response({})
+
+
+
+
 class LoginView(FormView):
     form_class = LoginForm
     template_name = 'login.html'
     success_url = '#/buddies'
+
 
     def form_valid(self, form):
         username = form.cleaned_data['username']
@@ -36,11 +67,11 @@ class LoginView(FormView):
         if user is not None:
             if user.is_active:
                 login(self.request, user)
-
-                return HttpResponse('fsdfsafafsaf')
+                print(UserSerializer(user).data)
+                return HttpResponse(json.dumps(UserSerializer(user).data), content_type="application/json")
 
         else:
-            return HttpResponse('fsdfsafafsaf')
+            return HttpResponse({})
 
 
     def form_invalid(self):
@@ -72,11 +103,11 @@ class LoginView(FormView):
 
 
 
-class UserList(generics.ListAPIView):
+class UserList(generics.ListCreateAPIView):
     model = User
     serializer_class = UserSerializer
     permission_classes = [
-        permissions.IsAuthenticatedOrReadOnly
+        AllowAny
     ]
 
 
@@ -110,7 +141,7 @@ class PlanList(mixins.ListModelMixin,
 
 
     def pre_save(self,obj):
-        obj.author=self.request.user
+        obj.usr=self.request.user
         return super(PlanList, self).pre_save(obj)
 
 
@@ -162,7 +193,7 @@ class PlanActivityList(mixins.ListModelMixin,
         return self.create(request, *args, **kwargs)
 
     def pre_save(self,obj):
-        obj.plan=self.request.plan
+        obj.plan=Plan.objects.get(id=self.kwargs.get('pk'))
         return super(PlanActivityList, self).pre_save(obj)
 
     def get_queryset(self):
@@ -186,6 +217,9 @@ class PlanActivityDetail(mixins.RetrieveModelMixin,
 
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
+    def get_queryset(self):
+        queryset = super(PlanActivityList, self).get_queryset()
+        return queryset.filter(plan__pk=self.kwargs.get('pk'))
 
 
 class PostMixin(object):

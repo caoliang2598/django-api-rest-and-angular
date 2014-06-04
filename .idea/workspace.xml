@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5befd7bd-8d86-473a-9c6e-05906b23926a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example/api/templates/account.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/example/api/templates/accountPlans.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/api/api.py" afterPath="$PROJECT_DIR$/example/api/api.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/api/form.py" afterPath="$PROJECT_DIR$/example/api/form.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/api/templates/index.html" afterPath="$PROJECT_DIR$/example/api/templates/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/api/templates/login.html" afterPath="$PROJECT_DIR$/example/api/templates/login.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/api/templates/mainpage.html" afterPath="$PROJECT_DIR$/example/api/templates/mainpage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/urls.py" afterPath="$PROJECT_DIR$/example/urls.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/api/models.py" afterPath="$PROJECT_DIR$/example/api/models.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/api/serializers.py" afterPath="$PROJECT_DIR$/example/api/serializers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/settings.py" afterPath="$PROJECT_DIR$/example/settings.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/example/api/urls.py" afterPath="$PROJECT_DIR$/example/api/urls.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -38,34 +40,25 @@
       <file leaf-file-name="script.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/assets/js/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="10" selection-start="3104" selection-end="3104" vertical-scroll-proportion="0.0" vertical-offset="1290" max-vertical-offset="6705">
+            <state line="199" column="74" selection-start="6973" selection-end="6973" vertical-scroll-proportion="-12.115385" vertical-offset="2670" max-vertical-offset="10095">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="account.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/example/api/templates/account.html">
+      <file leaf-file-name="api.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/api/api.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="542">
+            <state line="222" column="0" selection-start="6844" selection-end="6844" vertical-scroll-proportion="0.0" vertical-offset="2678" max-vertical-offset="3945">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainpage.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/api/templates/mainpage.html">
+      <file leaf-file-name="admin.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/api/admin.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="24" selection-start="183" selection-end="454" vertical-scroll-proportion="-0.0" vertical-offset="180" max-vertical-offset="1125">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="permissions.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/api/permissions.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="34" selection-start="1905" selection-end="1905" vertical-scroll-proportion="0.0" vertical-offset="750" max-vertical-offset="840">
+            <state line="9" column="29" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="195">
               <folding />
             </state>
           </provider>
@@ -74,25 +67,52 @@
       <file leaf-file-name="form.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/api/form.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="58" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="195">
+            <state line="6" column="58" selection-start="289" selection-end="289" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/api/templates/index.html">
+      <file leaf-file-name="urls.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/example/api/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="4" selection-start="712" selection-end="712" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="2325">
+            <state line="3" column="23" selection-start="149" selection-end="149" vertical-scroll-proportion="0.066079296" vertical-offset="15" max-vertical-offset="900">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="login.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/api/templates/login.html">
+      <file leaf-file-name="planDetail.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/api/templates/planDetail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="23" selection-start="24" selection-end="50" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="885">
+            <state line="4" column="30" selection-start="0" selection-end="6540" vertical-scroll-proportion="-0.625" vertical-offset="45" max-vertical-offset="2160">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="auth.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/api/auth.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="14" selection-start="33" selection-end="50" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="models.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/api/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="59" selection-start="837" selection-end="897" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="accountPlans.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/example/api/templates/accountPlans.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="233" column="66" selection-start="11329" selection-end="11329" vertical-scroll-proportion="-4.5" vertical-offset="3270" max-vertical-offset="4305">
               <folding />
             </state>
           </provider>
@@ -101,25 +121,7 @@
       <file leaf-file-name="serializers.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/example/api/serializers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="15" selection-start="101" selection-end="115" vertical-scroll-proportion="0.0" vertical-offset="75" max-vertical-offset="900">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="plans.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/api/templates/plans.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="48" selection-start="728" selection-end="728" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="1170">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="playground.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/example/api/templates/playground.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="9" selection-start="291" selection-end="291" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="390">
+            <state line="44" column="43" selection-start="1516" selection-end="1516" vertical-scroll-proportion="0.0" vertical-offset="490" max-vertical-offset="990">
               <folding />
             </state>
           </provider>
@@ -149,8 +151,6 @@
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/example/assets/js/filter.js" />
         <option value="$PROJECT_DIR$/example/api/auth.py" />
-        <option value="$PROJECT_DIR$/example/settings.py" />
-        <option value="$PROJECT_DIR$/example/api/serializers.py" />
         <option value="$PROJECT_DIR$/example/api/permissions.py" />
         <option value="$PROJECT_DIR$/example/api/templates/planDetial.html" />
         <option value="$PROJECT_DIR$/example/api/templates/planDetail.html" />
@@ -158,16 +158,19 @@
         <option value="$PROJECT_DIR$/example/api/templates/users.html" />
         <option value="$PROJECT_DIR$/example/api/templates/plans.html" />
         <option value="$PROJECT_DIR$/example/api/forms.py" />
-        <option value="$PROJECT_DIR$/example/api/models.py" />
         <option value="$PROJECT_DIR$/example/api/form.py" />
         <option value="$PROJECT_DIR$/example/api/templates/login.html" />
         <option value="$PROJECT_DIR$/example/urls.py" />
-        <option value="$PROJECT_DIR$/example/api/urls.py" />
-        <option value="$PROJECT_DIR$/example/api/api.py" />
+        <option value="$PROJECT_DIR$/example/settings.py" />
         <option value="$PROJECT_DIR$/example/api/templates/mainpage.html" />
         <option value="$PROJECT_DIR$/example/api/templates/index.html" />
-        <option value="$PROJECT_DIR$/example/assets/js/script.js" />
+        <option value="$PROJECT_DIR$/example/api/serializers.py" />
+        <option value="$PROJECT_DIR$/example/api/models.py" />
         <option value="$PROJECT_DIR$/example/api/templates/account.html" />
+        <option value="$PROJECT_DIR$/example/assets/js/script.js" />
+        <option value="$PROJECT_DIR$/example/api/templates/accountPlans.html" />
+        <option value="$PROJECT_DIR$/example/api/api.py" />
+        <option value="$PROJECT_DIR$/example/api/urls.py" />
       </list>
     </option>
   </component>
@@ -201,6 +204,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -315,7 +319,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -330,11 +333,17 @@
     <property name="SearchEverywhereHistory" value="" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="LayoutCode.rearrangeEntriesDjangoTemplate" value="false" />
+    <property name="LayoutCode.rearrangeEntriesJavaScript" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
       <console-settings />
     </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/example/api/templates" />
+    </key>
   </component>
   <component name="RunManager" selected="Django server.django-api-rest-and-angular">
     <configuration default="false" name="api" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -440,27 +449,7 @@
       <option name="PARAMETERS" value="" />
       <method />
     </configuration>
-    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="django-api-rest-and-angular" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <option name="port" value="8000" />
-      <option name="host" value="" />
-      <option name="additionalOptions" value="" />
-      <option name="browserUrl" value="" />
-      <option name="runTestServer" value="false" />
-      <option name="runNoReload" value="false" />
-      <option name="useCustomRunCommand" value="false" />
-      <option name="customRunCommand" value="" />
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Unittests">
@@ -486,7 +475,27 @@
       <option name="USE_PARAM" value="false" />
       <method />
     </configuration>
-    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true">
+    <configuration default="true" type="Python.DjangoServer" factoryName="Django server">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="django-api-rest-and-angular" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Doctests">
@@ -598,33 +607,37 @@
       <created>1400122623390</created>
       <updated>1400122623390</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="for form">
+      <created>1401326903713</created>
+      <updated>1401326903713</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32934928" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.58565736" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31875" sideWeight="0.61750406" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39719626" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31875" sideWeight="0.38249594" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1806109" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31875" sideWeight="0.61584157" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39707837" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31875" sideWeight="0.38217822" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46347943" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2682603" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="REST Client" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39875388" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -645,37 +658,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="python-line">
-          <url>file://$PROJECT_DIR$/example/api/api.py</url>
-          <line>54</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="7" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/example/assets/angular-mocks/angular-mocks.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="32535" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="507" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="510" selection-end="510" vertical-scroll-proportion="-5.8333335" vertical-offset="175" max-vertical-offset="645" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/assets/datepicker/css/datepicker.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2805" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example/assets/datepicker/less/datepicker.less">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="21" selection-start="900" selection-end="900" vertical-scroll-proportion="9.938775" vertical-offset="1252" max-vertical-offset="1905" />
@@ -696,39 +682,46 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="945" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/templates/photos.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="135" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example/assets/CSS/app.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="14" selection-start="768" selection-end="768" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1305" />
+        <state line="57" column="14" selection-start="768" selection-end="768" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1305">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example/assets/bootstrap/less/alerts.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1095">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example/assets/bootstrap/less/list-group.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="13" selection-start="147" selection-end="147" vertical-scroll-proportion="-2.7551022" vertical-offset="0" max-vertical-offset="1740" />
+        <state line="9" column="13" selection-start="147" selection-end="147" vertical-scroll-proportion="-2.7551022" vertical-offset="0" max-vertical-offset="1740">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example/assets/bootstrap/less/navbar.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="49.89796" vertical-offset="2445" max-vertical-offset="9330" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="49.89796" vertical-offset="2445" max-vertical-offset="9330">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example/assets/bootstrap/less/normalize.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6420" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="6420">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example/assets/bootstrap/less/pager.less">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="915">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example/api/templates/basic.html">
@@ -741,19 +734,9 @@
         <state line="2" column="15" selection-start="36" selection-end="42" vertical-scroll-proportion="10.625" vertical-offset="285" max-vertical-offset="615" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/templates/planDetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="13" selection-start="580" selection-end="580" vertical-scroll-proportion="-7.5" vertical-offset="0" max-vertical-offset="2160" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example/assets/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="105" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/templates/manage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="435" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example/api/templates/base.html">
@@ -768,7 +751,9 @@
     </entry>
     <entry file="file://$USER_HOME$/courses/TDDD27/REST-Django/lib/python2.7/site-packages/django/views/generic/base.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="0" selection-start="2363" selection-end="2363" vertical-scroll-proportion="0.0" vertical-offset="758" max-vertical-offset="3225" />
+        <state line="68" column="0" selection-start="2363" selection-end="2363" vertical-scroll-proportion="0.0" vertical-offset="758" max-vertical-offset="3225">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/courses/TDDD27/REST-Django/lib/python2.7/site-packages/django/core/handlers/base.py">
@@ -776,19 +761,11 @@
         <state line="138" column="0" selection-start="6026" selection-end="6026" vertical-scroll-proportion="0.33248082" vertical-offset="1715" max-vertical-offset="4215" />
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/courses/TDDD27/REST-Django/lib/python2.7/site-packages/rest_framework/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="387" column="0" selection-start="13728" selection-end="13728" vertical-scroll-proportion="0.75409836" vertical-offset="5318" max-vertical-offset="6315" />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/courses/TDDD27/REST-Django/lib/python2.7/site-packages/rest_framework/generics.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="38" column="31" selection-start="1186" selection-end="1193" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="8055" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="70" selection-start="5911" selection-end="5911" vertical-scroll-proportion="0.0" vertical-offset="2183" max-vertical-offset="2610" />
+        <state line="38" column="31" selection-start="1186" selection-end="1193" vertical-scroll-proportion="0.0" vertical-offset="90" max-vertical-offset="8055">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example/api/__init__.py">
@@ -796,47 +773,9 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="404" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/auth.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="14" selection-start="33" selection-end="50" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="240" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/wsgi.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570" />
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/courses/TDDD27/REST-Django/lib/python2.7/site-packages/django/conf/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="46" column="0" selection-start="1735" selection-end="1735" vertical-scroll-proportion="0.33333334" vertical-offset="413" max-vertical-offset="2895" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/assets/js/filter.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/api.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="31" selection-start="1439" selection-end="1439" vertical-scroll-proportion="0.0" vertical-offset="368" max-vertical-offset="3735">
-          <folding>
-            <element signature="e#0#64#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="68" selection-start="2011" selection-end="2011" vertical-scroll-proportion="0.0" vertical-offset="300" max-vertical-offset="900">
-          <folding>
-            <element signature="e#0#51#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="51" selection-start="1329" selection-end="1329" vertical-scroll-proportion="0.0" vertical-offset="196" max-vertical-offset="600" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example/api/templates/users.html">
@@ -844,19 +783,26 @@
         <state line="8" column="7" selection-start="263" selection-end="263" vertical-scroll-proportion="-0.6666667" vertical-offset="104" max-vertical-offset="1095" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/templates/userDetail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="24" selection-start="821" selection-end="821" vertical-scroll-proportion="-4.375" vertical-offset="240" max-vertical-offset="1350" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/templates/static.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="15" selection-start="36" selection-end="42" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="135" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/example/api/templates/resource.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="135" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/courses/TDDD27/REST-Django/lib/python2.7/site-packages/rest_framework/exceptions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="25" selection-start="811" selection-end="832" vertical-scroll-proportion="0.37393767" vertical-offset="273" max-vertical-offset="1275" />
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/courses/TDDD27/REST-Django/lib/python2.7/site-packages/rest_framework/authentication.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="92" column="43" selection-start="3242" selection-end="3262" vertical-scroll-proportion="0.0" vertical-offset="918" max-vertical-offset="5205">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/wsgi.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="570" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example/urls.py">
@@ -866,23 +812,138 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/admin.py">
+    <entry file="file://$PROJECT_DIR$/example/settings.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="29" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="195">
+        <state line="175" column="1" selection-start="6104" selection-end="6104" vertical-scroll-proportion="0.0" vertical-offset="2375" max-vertical-offset="2715" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/api/templates/manage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="435">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/serializers.py">
+    <entry file="file://$PROJECT_DIR$/example/api/templates/photos.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="15" selection-start="101" selection-end="115" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="135" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/api/templates/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="87" selection-start="2964" selection-end="2964" vertical-scroll-proportion="0.0" vertical-offset="827" max-vertical-offset="2325">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/api/templates/playground.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="9" selection-start="291" selection-end="291" vertical-scroll-proportion="0.0" vertical-offset="150" max-vertical-offset="390">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/example/api/permissions.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="34" selection-start="1905" selection-end="1905" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="840">
+        <state line="50" column="34" selection-start="1905" selection-end="1905" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="840">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/api/templates/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="93" selection-start="1900" selection-end="1908" vertical-scroll-proportion="0.0" vertical-offset="480" max-vertical-offset="885">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/api/templates/mainpage.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="114" selection-start="2320" selection-end="2320" vertical-scroll-proportion="-8.416667" vertical-offset="638" max-vertical-offset="1125">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/assets/js/filter.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/api/templates/account.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="166" column="79" selection-start="8276" selection-end="8298" vertical-scroll-proportion="-4.8" vertical-offset="2250" max-vertical-offset="2895">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/api/templates/userDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="24" selection-start="0" selection-end="3044" vertical-scroll-proportion="-4.375" vertical-offset="240" max-vertical-offset="1350">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/api/templates/static.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="15" selection-start="36" selection-end="42" vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="135">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/api/templates/plans.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="48" selection-start="728" selection-end="728" vertical-scroll-proportion="-0.625" vertical-offset="270" max-vertical-offset="1170">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/api/templates/planDetail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="30" selection-start="0" selection-end="6540" vertical-scroll-proportion="-0.625" vertical-offset="45" max-vertical-offset="2160">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/assets/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="199" column="74" selection-start="6973" selection-end="6973" vertical-scroll-proportion="-12.115385" vertical-offset="2670" max-vertical-offset="10095">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/api/templates/accountPlans.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="233" column="66" selection-start="11329" selection-end="11329" vertical-scroll-proportion="-4.5" vertical-offset="3270" max-vertical-offset="4305">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/courses/TDDD27/REST-Django/lib/python2.7/site-packages/django/utils/decorators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="0" selection-start="244" selection-end="244" vertical-scroll-proportion="0.2605459" vertical-offset="0" max-vertical-offset="1860">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/courses/TDDD27/REST-Django/lib/python2.7/site-packages/rest_framework/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="0" selection-start="3631" selection-end="3631" vertical-scroll-proportion="0.3325062" vertical-offset="1216" max-vertical-offset="6315">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/api/serializers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="43" selection-start="1516" selection-end="1516" vertical-scroll-proportion="0.0" vertical-offset="210" max-vertical-offset="990">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/example/api/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="59" selection-start="837" selection-end="897" vertical-scroll-proportion="0.0" vertical-offset="55" max-vertical-offset="600">
           <folding />
         </state>
       </provider>
@@ -894,51 +955,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/templates/login.html">
+    <entry file="file://$PROJECT_DIR$/example/api/auth.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="23" selection-start="24" selection-end="50" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="885">
+        <state line="4" column="14" selection-start="33" selection-end="50" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="240">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/templates/plans.html">
+    <entry file="file://$PROJECT_DIR$/example/api/admin.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="48" selection-start="728" selection-end="728" vertical-scroll-proportion="-11.875" vertical-offset="0" max-vertical-offset="1170">
+        <state line="9" column="29" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="195">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/templates/playground.html">
+    <entry file="file://$PROJECT_DIR$/example/api/api.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="9" selection-start="291" selection-end="291" vertical-scroll-proportion="-6.25" vertical-offset="0" max-vertical-offset="390">
+        <state line="222" column="0" selection-start="6844" selection-end="6844" vertical-scroll-proportion="0.0" vertical-offset="2678" max-vertical-offset="3945">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/templates/mainpage.html">
+    <entry file="file://$PROJECT_DIR$/example/api/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="24" selection-start="183" selection-end="454" vertical-scroll-proportion="0.0" vertical-offset="180" max-vertical-offset="1125">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/templates/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="4" selection-start="712" selection-end="712" vertical-scroll-proportion="-10.0" vertical-offset="0" max-vertical-offset="2325">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/assets/js/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="10" selection-start="3104" selection-end="3104" vertical-scroll-proportion="0.0" vertical-offset="1290" max-vertical-offset="6705">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/example/api/templates/account.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="566">
+        <state line="3" column="23" selection-start="149" selection-end="149" vertical-scroll-proportion="0.066079296" vertical-offset="15" max-vertical-offset="900">
           <folding />
         </state>
       </provider>

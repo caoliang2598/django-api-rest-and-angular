@@ -5,7 +5,7 @@ from .api import PostList, PostDetail, UserPostList, UserPlanList
 from .api import PhotoList, PhotoDetail, PostPhotoList, PlanDetail
 from .api import PlanList, PlanDetail
 from .api import PlanActivityList, PlanActivityDetail
-from .api import LoginView, logout_view
+from .api import LoginView, logout_view, AuthView
 
 user_urls = patterns('',
                      url(r'^/(?P<username>[0-9a-zA-Z_-]+)/plans$', UserPlanList.as_view(), name='userplan-list'),
@@ -41,7 +41,7 @@ urlpatterns = patterns('',
                        url(r'^posts', include(post_urls)),
                        url(r'^photos', include(photo_urls)),
                        url(r'^plans', include(plan_urls)),
-                       url(r'^login/', LoginView.as_view(),name='login'),
+                       url(r'^login/', AuthView.as_view(),name='login'),
                        url(r'^logout/', 'example.api.api.logout_view')
 )
 

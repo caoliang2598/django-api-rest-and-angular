@@ -1,0 +1,282 @@
+<div class="container" ng-controller="planEditController">
+     <!-- Modal -->
+                    <div class="modal fade" id="planEditModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"
+                                        aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Edit Plan</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal">
+                                    <fieldset>
+
+                                        <!-- Form Name -->
+                                        <legend></legend>
+
+                                        <!-- Text input-->
+                                        <div class="control-group">
+                                            <label class="control-label" for="textinput">Title</label>
+
+                                            <div class="controls">
+                                                <input id="textinput" name="textinput" type="text" placeholder=""
+                                                       class="input-xlarge" ng-model="planEditForm.title" >
+
+                                            </div>
+                                        </div>
+
+                                        <!-- Text input-->
+                                        <div class="control-group">
+                                            <label class="control-label" for="fn">Date</label>
+
+                                            <div class="controls">
+                                                <input id="fn" name="fn" type="text" placeholder=""
+                                                       class="input-xlarge" ng-model="planEditForm.arrTime">
+
+                                            </div>
+                                        </div>
+
+                                        <!-- Text input-->
+                                        <div class="control-group">
+                                            <label class="control-label" for="sn">Destination</label>
+
+                                            <div class="controls">
+                                                <input id="sn" name="sn" type="text" placeholder=""
+                                                       class="input-xlarge" ng-model="planEditForm.des">
+
+                                            </div>
+                                        </div>
+
+                                        <!-- Text input-->
+                                        <div class="control-group">
+                                            <label class="control-label" for="gd">Description</label>
+
+                                            <div class="controls">
+                                                <input id="gd" name="gd" type="text" placeholder=""
+                                                       class="input-xlarge" ng-model="planEditForm.desc">
+
+                                            </div>
+                                        </div>
+
+
+                                    </fieldset>
+                                </form>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" ng-click="submitPlan()">Update
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="modal fade" id="actModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"
+                                        aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">New Activity</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form class="form-horizontal">
+                                    <fieldset>
+
+                                        <!-- Form Name -->
+                                        <legend></legend>
+
+                                        <!-- Text input-->
+                                        <div class="control-group">
+                                            <label class="control-label" for="textinput">Title</label>
+
+                                            <div class="controls">
+                                                <input id="textinput" name="textinput" type="text" placeholder=""
+                                                       class="input-xlarge" ng-model="actForm.title" >
+
+                                            </div>
+                                        </div>
+
+                                        <!-- Text input-->
+                                        <div class="control-group">
+                                            <label class="control-label" for="fn">Date</label>
+
+                                            <div class="controls">
+                                                <input id="fn" name="fn" type="text" placeholder=""
+                                                       class="input-xlarge" ng-model="actForm.actTime">
+
+                                            </div>
+                                        </div>
+
+
+
+                                        <!-- Text input-->
+                                        <div class="control-group">
+                                            <label class="control-label" for="gd">Description</label>
+
+                                            <div class="controls">
+                                                <input id="gd" name="gd" type="text" placeholder=""
+                                                       class="input-xlarge" ng-model="actForm.desc">
+
+                                            </div>
+                                        </div>
+
+
+                                    </fieldset>
+                                </form>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" ng-click="newAct()">create
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+    <div class="row">
+        <div class="col-sm-4 col-md-4 col-lg-4 col-xs-12">
+            <div class="list-group">
+                {% verbatim %}
+                    <a class="list-group-item active"> PLAN INFORMATION</a>
+
+
+                <a class="list-group-item"> Destination: {{ plan.des }}</a>
+                <a class="list-group-item">Arrival Time: {{ plan.arrTime| date:'yyyy-MM-dd' }}</a>
+
+            </div>
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    USER INFORMATION
+                </div>
+                <div class="panel-body">
+                    Panel content goes here. Lorem ipsum dolor set amet. Panel content goes here. Lorem ipsum dolor set
+                    amet.
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8 col-md-8 col-lg-8 col-xs-12">
+            <ol class="breadcrumb">
+                <li>
+                    <button class="btn btn-primary btn-xs" data-toggle="#planEditModal" ng-click="editInfo()">Edit Plan</button>
+                </li>
+                <li>
+                    <button class="btn btn-dangerous btn-xs" data-toggle="#planEditModal" ng-click="editInfo()">Delete Plan</button>
+                </li>
+                <li>
+                    <button class="btn btn-dangerous btn-xs" data-toggle="#Modal" data-target="#actModal" ng-click="showEdit()">New Activity</button>
+                </li>
+            </ol>
+
+            <h2 class="page-header">
+                {{ plan.title }}
+            </h2>
+
+            <div id="tabs-575670" class="tabs-custom">
+                {{ plan.desc }}
+                <ul class="nav nav-tabs">
+
+
+                </ul>
+                <div ng-repeat="act in activities" class="tab-content">
+                    <div class="tab-pane active" id="act.id">
+                        <h3>
+
+                            {{ act.actTitle }}
+
+                        </h3>
+
+                        <div class="well well-sm">
+                            <div class="row">
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <p>
+                                        Date:
+                                        <small>{{ act.actTime|date:'yyyy-MM-dd' }}</small>
+                                        | Time:
+                                        <small>{{ act.actTime|date:'HH:mm' }}</small>
+                                    </p>
+                                </div>
+                                <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    <p class="text-right">
+                                        Share: <a href="#"><i class="icon-twitter  custom-icon"></i></a> <a href="#"><i
+                                            class="icon-facebook  custom-icon"></i></a> <a href="#"><i
+                                            class="icon-google-plus  custom-icon"></i></a> <a href="#"><i
+                                            class="icon-linkedin  custom-icon"></i></a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <p>
+                            {{ act.desc }}
+                        </p>
+
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                <p>
+                                    Date:
+                                    <small>{{ act.actTime|date:'yyyy-MM-dd' }}</small>
+                                </p>
+                                <p>
+                                    Time:
+                                    <small>{{ act.actTime|date:'HH:mm' }}</small>
+                                </p>
+                            </div>
+                            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-right">
+                                <a class="btn btn-default btn-sm" href="#">Edit</a>
+                                <a class="btn btn-default btn-sm"  ng-click="deleteAct( act.id )">Delete</a>
+
+                            </div>
+                        </div>
+                        <hr>
+                        {% endverbatim %}
+                    </div>
+                    <div class="tab-pane" id="panel-415122">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <form action="#" method="post" class="form" role="form">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-12">
+                                            <label>Search by name</label>
+                                            <input class="form-control" name="searchname" type="text"
+                                                   placeholder="search">
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <label>Search by Date</label>
+
+                                    <div class="row">
+                                        <div class="col-xs-4 col-md-4">
+                                            <select class="form-control">
+                                                <option value="Month">Month</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-4 col-md-4">
+                                            <select class="form-control">
+                                                <option value="Day">Day</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-xs-4 col-md-4">
+                                            <select class="form-control">
+                                                <option value="Year">Year</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <button class="btn btn-lg btn-primary" type="submit">SEARCH</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

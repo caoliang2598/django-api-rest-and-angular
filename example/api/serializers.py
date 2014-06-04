@@ -9,8 +9,16 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = User
+        read_only_fields = ('id',)
+        write_only_fields = ('password',)
         fields = ('id', 'username', 'first_name', 'last_name', 'sex', 'desc', 'plans')
-        read_only_fields = ('username',)
+
+
+    def restore_object(self, attrs, instance=None):
+        user = super(UserSerializer, self).restore_object(attrs, instance)
+        if attrs.get('password'):
+            user.set_password(attrs['password'])
+        return user
 
 
 
@@ -21,12 +29,12 @@ class PlanSerializer(serializers.ModelSerializer):
     authorId = serializers.Field(source='usr.id')
 
     usr = UserSerializer(required=False)
-    usr = serializers.HyperlinkedRelatedField(view_name='user-detail', lookup_field='username')
+    usr = serializers.HyperlinkedRelatedField(view_name='user-detail', lookup_field='username', required=False)
     authorDesc = serializers.Field(source='usr.desc')
     acts = serializers.HyperlinkedIdentityField('activitis', view_name='planactivity-list', lookup_field='')
     class Meta:
         model = Plan
-        fields = ('id', 'title', 'des', 'authorName', 'arrTime', 'acts', 'desc', 'authorDesc', 'usr', 'authorId')
+        fields = ('id', 'title', 'des', 'authorName', 'arrTime', 'acts', 'desc', 'authorDesc', 'authorId', 'usr')
 
 
 class ActivitySerializer(serializers.ModelSerializer):

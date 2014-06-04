@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     age = models.PositiveIntegerField(default=0)
-    sex = models.CharField(max_length=20, default="")
+    sex = models.CharField(max_length=20, default='', blank=True, null=True)
     desc = models.TextField(blank=True, null=True, default='')
     followers = models.ManyToManyField('self', related_name='followees', symmetrical=False)
     proPic = models.ImageField(upload_to="%Y/%m/%d", default="")
@@ -14,7 +14,7 @@ class User(AbstractUser):
 class Plan(models.Model):
     arrTime = models.DateTimeField()
     title = models.CharField(max_length=60, default="")
-    usr = models.ForeignKey(User,related_name='plan')
+    usr = models.ForeignKey(User,related_name='plan', null=True)
     des = models.CharField(max_length=30, default="")
     flightNr = models.CharField(max_length=20)
     desc = models.TextField(blank=True, null=True, default='')
