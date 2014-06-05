@@ -1,6 +1,6 @@
 from rest_framework import generics, permissions, mixins, status
 
-
+from rest_framework.decorators import api_view
 from .serializers import UserSerializer, PostSerializer, PhotoSerializer, PlanSerializer, ActivitySerializer
 from .models import User, Post, Photo, Plan, Activity
 from .permissions import IsOwnerOrReadOnly,PostAuthorCanEditPermission, IsUerOrReadOnly
@@ -22,7 +22,7 @@ from django.http import HttpResponse
 
 def logout_view(request):
     logout(request)
-    return HttpResponse('fsdfsafafsaf')
+    return HttpResponse('Logged out')
 
 from rest_framework.authentication import BasicAuthentication
 
@@ -101,7 +101,18 @@ class LoginView(FormView):
         return super(LoginView, self).dispatch(*args, **kwargs)
 
 
-
+@api_view(['POST'])
+def create_auth(request):
+    serialized = UserSerializer(data=request.DATA)
+    print(request.DATA)
+    if serialized.is_valid():
+        User.objects.create_user(
+            username=serialized.init_data['username'],
+            password=request.DATA.get('password')
+        )
+        return Response(serialized.data, status=status.HTTP_201_CREATED)
+    else:
+        return Response(serialized._errors, status=status.HTTP_400_BAD_REQUEST)
 
 class UserList(generics.ListCreateAPIView):
     model = User
@@ -218,8 +229,8 @@ class PlanActivityDetail(mixins.RetrieveModelMixin,
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
     def get_queryset(self):
-        queryset = super(PlanActivityList, self).get_queryset()
-        return queryset.filter(plan__pk=self.kwargs.get('pk'))
+        queryset = super(PlanActivityDetail, self).get_queryset()
+        return queryset.filter(id=self.kwargs.get('pk')).filter(plan__pk=self.kwargs.get('spk'))
 
 
 class PostMixin(object):

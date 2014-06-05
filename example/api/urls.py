@@ -16,7 +16,8 @@ user_urls = patterns('',
 activity_urls = patterns(
     '',
     url(r'^$', PlanActivityList.as_view(), name='planactivity-list'),
-    url(r'^/(?P<pk>\d+)$', PlanActivityDetail.as_view(), name='planactivity-detail')
+    url(r'^a(?P<pk>\d+)$', PlanActivityDetail.as_view(), name='PlanActivityDetail')
+
 )
 
 plan_urls = patterns(
@@ -24,6 +25,8 @@ plan_urls = patterns(
     url(r'^$', PlanList.as_view(), name='plan-list'),
     url(r'/(?P<pk>\d+)$', PlanDetail.as_view(), name='plan-detail'),
     url(r'^/(?P<pk>\d+)/activities$', include(activity_urls), name=''),
+    url(r'^/(?P<spk>\d+)/activities/a(?P<pk>\d+)$', PlanActivityDetail.as_view(), name='PlanActivityDetail2')
+
 )
 post_urls = patterns('',
                      url(r'^/(?P<pk>\d+)/photos$', PostPhotoList.as_view(), name='postphoto-list'),
@@ -42,7 +45,9 @@ urlpatterns = patterns('',
                        url(r'^photos', include(photo_urls)),
                        url(r'^plans', include(plan_urls)),
                        url(r'^login/', AuthView.as_view(),name='login'),
-                       url(r'^logout/', 'example.api.api.logout_view')
+                       url(r'^logout/', 'example.api.api.logout_view'),
+                       url(r'^register/', 'example.api.api.create_auth'),
+
 )
 
 urlpatterns += patterns('',

@@ -1,0 +1,321 @@
+<div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Heading</h2>
+
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+                euismod. Donec sed odio dui. </p>
+
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Heading</h2>
+
+            <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis
+                euismod. Donec sed odio dui. </p>
+
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Heading</h2>
+
+            <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula
+                porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut
+                fermentum massa justo sit amet risus.</p>
+
+            <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+        </div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <p>&copy; Company 2014</p>
+    </footer>
+</div>
+
+
+
+
+
+(function () {
+    var app;
+
+    app = angular.module('example.app.basic', []);
+
+    app.controller('AppController', [
+        '$scope', '$http', function ($scope, $http) {
+            $scope.posts = [];
+            return $http.get('/api/posts').then(function (result) {
+                return angular.forEach(result.data, function (item) {
+                    return $scope.posts.push(item);
+                });
+            });
+        }
+    ]);
+
+}).call(this);
+
+(function () {
+    var app;
+
+    app = angular.module('example.app.editor', ['example.api', 'example.app.photos']);
+
+    app.controller('EditController', [
+        '$scope', 'Post', function ($scope, Post) {
+            $scope.newPost = new Post();
+            return $scope.save = function () {
+                return $scope.newPost.$save().then(function (result) {
+                    return $scope.posts.push(result);
+                }).then(function () {
+                    return $scope.newPost = new Post();
+                }).then(function () {
+                    return $scope.errors = null;
+                }, function (rejection) {
+                    return $scope.errors = rejection.data;
+                });
+            };
+        }
+    ]);
+
+}).call(this);
+
+(function () {
+    var app;
+
+    app = angular.module('example.app.manage', ['example.api', 'example.app.editor']);
+
+    app.controller('DeleteController', [
+        '$scope', 'AuthUser', function ($scope, AuthUser) {
+            $scope.canDelete = function (post) {
+                return post.author.username === AuthUser.username;
+            };
+            return $scope["delete"] = function (post) {
+                return post.$delete().then(function () {
+                    var idx;
+                    idx = $scope.posts.indexOf(post);
+                    return $scope.posts.splice(idx, 1);
+                });
+            };
+        }
+    ]);
+
+}).call(this);
+
+(function () {
+    var app;
+
+    app = angular.module('example.app.photos', ['example.api']);
+
+    app.controller('AppController', [
+        '$scope', 'Post', 'PostPhoto', function ($scope, Post, PostPhoto) {
+            $scope.photos = {};
+            $scope.posts = Post.query();
+            return $scope.posts.$promise.then(function (results) {
+                return angular.forEach(results, function (post) {
+                    return $scope.photos[post.id] = PostPhoto.query({
+                        post_id: post.id
+                    });
+                });
+            });
+        }
+    ]);
+
+}).call(this);
+
+(function () {
+    var app;
+
+    app = angular.module('example.app.playground', ['example.api.playground']);
+
+    app.controller('AppController', [
+        '$scope', 'User', function ($scope, User) {
+            $scope.users = [];
+            $scope.newUsername = "";
+            $scope.loadUsers = function () {
+                return User.query().$promise.then(function (results) {
+                    return $scope.users = results;
+                });
+            };
+            $scope.addUser = function () {
+                var user;
+                user = new User({
+                    username: $scope.newUsername
+                });
+                $scope.newUsername = "";
+                return user.$save().then($scope.loadUsers);
+            };
+            $scope.deleteUser = function (user) {
+                return user.$delete().then($scope.loadUsers);
+            };
+            return $scope.loadUsers();
+        }
+    ]);
+
+}).call(this);
+
+(function () {
+    var app;
+
+    app = angular.module('example.app.resource', ['example.api']);
+
+    app.controller('AppController', [
+        '$scope', 'Post', function ($scope, Post) {
+            return $scope.posts = Post.query();
+        }
+    ]);
+
+}).call(this);
+
+
+(function () {
+    var app;
+
+    app = angular.module('example.app.update', ['example.api']);
+
+    app.controller('AppController', [
+        '$scope', 'User', function ($scope, User) {
+            $scope.users = [];
+            $scope.newUsername = "";
+            $scope.loadUsers = function () {
+                return User.query().$promise.then(function (results) {
+                    return $scope.users = results;
+                });
+            };
+            $scope.addUser = function () {
+                var user;
+                user = new User({
+                    username: $scope.newUsername
+                });
+                $scope.newUsername = "";
+                return user.$save().then($scope.loadUsers);
+            };
+            $scope.deleteUser = function (user) {
+                return user.$delete().then($scope.loadUsers);
+            };
+            return $scope.loadUsers();
+        }
+    ]);
+
+}).call(this);
+
+(function () {
+    var app;
+
+    app = angular.module('example.api', ['ngResource']);
+
+    app.factory('User', [
+        '$resource', function ($resource) {
+            return $resource('/api/users/:username', {
+                username: '@username'
+            });
+        }
+    ]);
+
+    app.factory('Post', [
+        '$resource', function ($resource) {
+            return $resource('/api/posts/:id', {
+                id: '@id'
+            });
+        }
+    ]);
+
+    app.factory('Photo', [
+        '$resource', function ($resource) {
+            return $resource('/api/photos/:id', {
+                id: '@id'
+            });
+        }
+    ]);
+
+    app.factory('UserPost', [
+        '$resource', function ($resource) {
+            return $resource('/api/users/:username/posts/:id');
+        }
+    ]);
+
+    app.factory('PostPhoto', [
+        '$resource', function ($resource) {
+            return $resource('/api/posts/:post_id/photos/:id');
+        }
+    ]);
+
+}).call(this);
+
+(function () {
+    var app;
+
+    app = angular.module('example.api.playground', []);
+
+    app.factory('User', [
+        '$q', function ($q) {
+            var MockUser, storage, user, username, _i, _len, _ref;
+            storage = {};
+            MockUser = (function () {
+                function MockUser(params) {
+                    var key, value;
+                    for (key in params) {
+                        value = params[key];
+                        this[key] = value;
+                    }
+                }
+
+                MockUser.query = function () {
+                    var dfr, key, val, values;
+                    dfr = $q.defer();
+                    values = (function () {
+                        var _results;
+                        _results = [];
+                        for (key in storage) {
+                            val = storage[key];
+                            _results.push(val);
+                        }
+                        return _results;
+                    })();
+                    dfr.resolve(values);
+                    values.$promise = dfr.promise;
+                    return values;
+                };
+
+                MockUser.save = function (params) {
+                    var user;
+                    user = new this(params);
+                    user.$save();
+                    return user;
+                };
+
+                MockUser.prototype.$save = function () {
+                    var dfr;
+                    storage[this.username] = this;
+                    dfr = $q.defer();
+                    dfr.resolve(this);
+                    return dfr.promise;
+                };
+
+                MockUser.prototype.$delete = function () {
+                    var dfr;
+                    delete storage[this.username];
+                    dfr = $q.defer();
+                    dfr.resolve();
+                    return dfr.promise;
+                };
+
+                return MockUser;
+
+            })();
+            _ref = ['bob', 'sally', 'joe', 'rachel'];
+            for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+                username = _ref[_i];
+                user = new MockUser({
+                    username: username
+                });
+                storage[user.username] = user;
+            }
+            return MockUser;
+        }
+    ]);
+
+}).call(this);
